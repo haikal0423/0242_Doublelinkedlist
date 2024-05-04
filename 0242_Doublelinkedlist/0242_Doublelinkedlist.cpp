@@ -27,14 +27,14 @@ void addNode()
 			return;
 		}
 		newNode->next = START;
-		if (START != NULL) 
+		if (START != NULL)
 		{
 			START->prev = newNode;
 		}
 		newNode->prev = NULL;
 		START = newNode;
 	}
-	else 
+	else
 	{
 		Node* current = START;
 		Node* previous = NULL;
@@ -56,19 +56,24 @@ void addNode()
 		{
 			previous->next = newNode;
 		}
-
-
-
-
-
-
-
-
-
-
-
-
+		else
+		{
+			START = newNode;
+		}
 	}
+}
+
+bool search(int rollNo, Node** previous, Node** current)
+{
+	*previous = NULL;
+	*current = START;
+	while (*current != NULL && (*current)->noMhs != rollNo)
+	{
+		*previous = *current;
+		*current = (*current)->next;
+	}
+	return (*current != NULL);
+}
 
 
 
