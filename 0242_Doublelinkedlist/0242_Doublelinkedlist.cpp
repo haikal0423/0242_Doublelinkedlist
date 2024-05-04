@@ -14,6 +14,8 @@ Node* START = NULL;
 
 void addNode()
 {
+	Node* newNode = new Node();
+
 
 
 
